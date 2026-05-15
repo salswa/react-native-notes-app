@@ -5,7 +5,7 @@ export const Colors = {
     // Backgrounds
     backgroundPrimary: "#FFFFFF",
     backgroundSecondary: "#F5F5F2", // page/screen bg
-    //backgroundCard: "#FAFAF8", // note cards
+    backgroundCard: "#FAFAF8", // note cards
     backgroundMuted: "#eaeaea", // tags
     backgroundAccent: "#5B7FDB", // buttons
     backgroundActive: "#5b7fdb33",
@@ -17,31 +17,31 @@ export const Colors = {
     textAccent: "#5B7FDB",
     textOnAccent: "#FFFFFF",
     //textOnError: "#7A2A20",
-
-    // black: "#11181c",
-    // gray: "#71717a",
-    // lightgray:"#f4f4f5",
-    // dark2:"#3f3f46",
-    // light: "#f9fafb",
   },
   dark: {
-    backgroundPrimary: "#111318",
-    backgroundSecondary: "#1C1F27",
+    backgroundPrimary: "#1b1b1b",
+    backgroundSecondary: "#222220",
     backgroundCard: "#1A1D24",
-    backgroundMuted: "#2A2D35",
+    backgroundMuted: "#2a2a2a",
     backgroundAccent: "#4A6CC9",
-    backgroundActive: "#DF6659",
+    backgroundActive: "#5b7fdb33",
 
     textPrimary: "#E8EAF0",
     textSecondary: "#A0A8B8",
     textMuted: "#5A6070",
-    textAccent: "#7B9BE8",
+    textAccent: "#5B7FDB",
     textOnAccent: "#FFFFFF",
     // textOnError: "#FFFFFF",
   },
 } as const;
 
+export type Theme = keyof typeof Colors;
+
 export type ThemeColor = keyof typeof Colors.light & keyof typeof Colors.dark;
+
+export type ThemeBackgroundColor = Extract<ThemeColor, `background${string}`>;
+
+export type ThemeTextColor = Extract<ThemeColor, `text${string}`>;
 
 // Spacing scale (4pt base grid)
 export const Spacing = {
